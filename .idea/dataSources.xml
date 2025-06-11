@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="@192.168.200.130" uuid="e1be922e-248c-4115-a103-dbdbe8b04a19">
-      <driver-ref>mysql_aurora</driver-ref>
+    <data-source source="LOCAL" name="leadnews_admin@192.168.200.130" uuid="e1be922e-248c-4115-a103-dbdbe8b04a19">
+      <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
-      <jdbc-driver>org.mariadb.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mariadb://192.168.200.130:3306/</jdbc-url>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://192.168.200.130:3306/leadnews_admin?useSSL=false&amp;allowPublicKeyRetrieval=true</jdbc-url>
       <jdbc-additional-properties>
         <property name="APPROVED_DRIVER" value="mysql_aurora" />
       </jdbc-additional-properties>

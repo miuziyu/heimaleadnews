@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DdlMappings">
+    <mapping uuid="5ae7eb90-e859-4027-b040-acc4443d2685" name="leadnews_admin@192.168.200.130 Mapping">
+      <data-sources db="e1be922e-248c-4115-a103-dbdbe8b04a19" ddl="598f2f26-8969-4b42-9849-d18ce513a72e" />
+      <scope>
+        <node kind="database" negative="1">
+          <node kind="schema" negative="1" />
+        </node>
+      </scope>
+    </mapping>
+  </component>
+  <component name="SqlDataSourceStorage">
+    <option name="dataSources">
+      <list>
+        <State>
+          <option name="id" value="598f2f26-8969-4b42-9849-d18ce513a72e" />
+          <option name="name" value="leadnews_admin@192.168.200.130 (DDL)" />
+          <option name="languageId" value="MySQL" />
+          <option name="parent" value="e1be922e-248c-4115-a103-dbdbe8b04a19" />
+          <option name="urls">
+            <array />
+          </option>
+        </State>
+      </list>
+    </option>
+  </component>
+</project>

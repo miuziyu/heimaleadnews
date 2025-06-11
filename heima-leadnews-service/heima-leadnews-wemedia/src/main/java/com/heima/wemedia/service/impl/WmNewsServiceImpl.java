@@ -15,12 +15,10 @@ import com.heima.common.exception.CustomException;
 import com.heima.model.common.dtos.PageResponseResult;
 import com.heima.model.common.dtos.ResponseResult;
 import com.heima.model.common.enums.AppHttpCodeEnum;
+import com.heima.model.wemedia.dtos.NewsAuthDto;
 import com.heima.model.wemedia.dtos.WmNewsDto;
 import com.heima.model.wemedia.dtos.WmNewsPageReqDto;
-import com.heima.model.wemedia.pojos.WmMaterial;
-import com.heima.model.wemedia.pojos.WmNews;
-import com.heima.model.wemedia.pojos.WmNewsMaterial;
-import com.heima.model.wemedia.pojos.WmUser;
+import com.heima.model.wemedia.pojos.*;
 import com.heima.utils.thread.WmThreadLocalUtil;
 import com.heima.wemedia.mapper.WmMaterialMapper;
 import com.heima.wemedia.mapper.WmNewsMapper;
@@ -185,6 +183,43 @@ public class WmNewsServiceImpl extends ServiceImpl<WmNewsMapper, WmNews> impleme
         }
 
         return ResponseResult.okResult(AppHttpCodeEnum.SUCCESS);
+    }
+
+    /**
+     * @param dto
+     * @return
+     */
+    @Override
+    public ResponseResult findlist(NewsAuthDto dto) {
+        //参数检验
+        if(dto == null)
+        {
+            return ResponseResult.errorResult(AppHttpCodeEnum.PARAM_INVALID);
+        }
+        //规范分页
+        dto.checkParam();
+        //查找频道
+        IPage<WmNews> page = new Page(dto.getPage(), dto.getSize());
+        LambdaQueryWrapper<WmNews> wrapper = new LambdaQueryWrapper<>();
+        //根据title
+        if(org.apache.commons.lang.StringUtils.isNotBlank(dto.getTitle()))
+        {
+            //模糊查询
+            wrapper.like(WmNews::getTitle,dto.getTitle());
+        }
+        //状态：0是停用，1是启用
+        if(dto.getStatus() != null && dto.getStatus() >= 0 && dto.getStatus() <= 9)
+        {
+
+            wrapper.eq(WmNews::getStatus,dto.getStatus());
+        }
+        //根据创造时间排序
+        wrapper.orderByDesc(WmNews::getCreatedTime);
+        //分页查询
+        page = page(page, wrapper);
+        ResponseResult responseResult = new PageResponseResult(dto.getPage(),dto.getSize(),(int)page.getTotal());
+        responseResult.setData(page.getRecords());
+        return responseResult;
     }
 
     private void saveRelativeInfoForContent(List<String> materials, Integer id) {

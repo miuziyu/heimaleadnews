@@ -14,6 +14,7 @@
         <module name="heima-leadnews-user" />
         <module name="heima-leadnews-article" />
         <module name="heima-leadnews-admin-gateway" />
+        <module name="heima-leadnews-admin" />
         <module name="es-init" />
         <module name="freemarker-demon" />
         <module name="heima-leadnews-schedule" />
@@ -35,6 +36,7 @@
       <module name="freemarker-demon" options="-parameters" />
       <module name="heima-file-starter" options="-parameters" />
       <module name="heima-leadnews" options="" />
+      <module name="heima-leadnews-admin" options="-parameters" />
       <module name="heima-leadnews-admin-gateway" options="-parameters" />
       <module name="heima-leadnews-apis" options="-parameters" />
       <module name="heima-leadnews-app-gateway" options="-parameters" />
@@ -42,7 +44,7 @@
       <module name="heima-leadnews-basic" options="" />
       <module name="heima-leadnews-common" options="-parameters" />
       <module name="heima-leadnews-feign-api" options="-parameters" />
-      <module name="heima-leadnews-gateway" options="-parameters" />
+      <module name="heima-leadnews-gateway" options="" />
       <module name="heima-leadnews-model" options="-parameters" />
       <module name="heima-leadnews-schedule" options="-parameters" />
       <module name="heima-leadnews-search" options="-parameters" />
